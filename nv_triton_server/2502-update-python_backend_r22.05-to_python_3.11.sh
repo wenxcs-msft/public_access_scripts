@@ -36,10 +36,16 @@ sed -i  's/2\.6/2.12/g' /opt/tritonserver/python/python_backend/CMakeLists.txt
 # Install 
 /opt/tritonserver/python/conda/bin/conda run -n base cmake --install /opt/tritonserver/python/python_backend/build --prefix /opt/tritonserver/
 
-
-# Test
+# #Test
+# cd /opt/tritonserver/python/python_backend
 # mkdir -p models/add_sub/1/
 # cp examples/add_sub/model.py models/add_sub/1/model.py
 # cp examples/add_sub/config.pbtxt models/add_sub/config.pbtxt
-# /opt/tritonserver/bin/tritonserver --model-repository=`pwd`/models
-# /opt/tritonserver/python/conda/bin/conda install tritonclient -y
+# # Run the server!
+# LD_LIBRARY_PATH=/opt/tritonserver/python/conda/lib:$LD_LIBRARY_PATH /opt/tritonserver/bin/tritonserver --model-repository=`pwd`/models
+# # Run the client: need to execute in another shell!
+# /opt/tritonserver/python/conda/bin/conda run -n base pip install tritonclient gevent geventhttpclient
+# /opt/tritonserver/python/conda/bin/conda run -n base python3 examples/add_sub/client.py
+
+# Finish
+# docker kill tritonserver2205test && docker rm tritonserver2205test
