@@ -24,7 +24,7 @@ rm -rf /opt/tritonserver/python/python_backend/build && mkdir -p /opt/tritonserv
 sed -i  's/https:\/\/boostorg.jfrog.io\/artifactory\/main\/release\/1.76.0\/source\/boost_1_76_0.tar.gz/https:\/\/archives.boost.io\/release\/1.76.0\/source\/boost_1_76_0.tar.gz/g' /opt/tritonserver/python/python_backend/CMakeLists.txt
 
 # Fix compiling issue to update pybind from 2.6 to 2.12 for python 3.11
-sed -i  's/2.6/2.12/g' /opt/tritonserver/python/python_backend/CMakeLists.txt
+sed -i  's/2\.6/2.12/g' /opt/tritonserver/python/python_backend/CMakeLists.txt
 
 # Cmake .
 /opt/tritonserver/python/conda/bin/conda run -n base cmake -S/opt/tritonserver/python/python_backend/ -B/opt/tritonserver/python/python_backend/build  -DTRITON_ENABLE_GPU=ON -DTRITON_BACKEND_REPO_TAG=r22.05 -DTRITON_COMMON_REPO_TAG=r22.05 -DTRITON_CORE_REPO_TAG=r22.05 -DCMAKE_INSTALL_PREFIX=/opt/tritonserver
