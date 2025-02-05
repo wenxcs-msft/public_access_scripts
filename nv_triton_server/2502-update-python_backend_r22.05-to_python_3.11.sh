@@ -1,4 +1,5 @@
-!/bin/bash
+#!/bin/bash
+# Wenxiang Hu @ MSFT
 
 # docker run -idt --name tritonserver2205test nvcr.io/nvidia/tritonserver:22.05-py3
 # docker exec -it tritonserver2205test bash
